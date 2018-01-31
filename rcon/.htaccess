@@ -1,0 +1,10 @@
+AuthType Basic
+AuthName "Minecraft RCON"
+AuthUserFile "/var/www/.htpasswd"
+
+Require local
+Require valid-user
+
+<Files config.php>
+  Require local
+</Files>

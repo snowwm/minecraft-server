@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  mcserver:
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./data:/data
+    environment:
+      EULA: "true"
+      MOTD: "Snow Won't Melt"
+      ONLINE_MODE: "false"
+      ENABLE_QUERY: "true"
+      QUERY_PORT: 25585
+      ENABLE_RCON: "true"
+      RCON_PORT: 25575
+      RCON_PASSWORD: "password"
+    image: itzg/minecraft-server
+    container_name: mc
+    # tty: true
+    # stdin_open: true
+    restart: unless-stopped
+
+  rcon:
+    build: rcon
+    image: rcon
+    container_name: rcon
+    ports:
+      - "80:80"
+    environment:
+      ADMIN_USER: "admin"
+      ADMIN_PASSWORD: # substituted from shell
+      RCON_HOST: "mcserver" # the name of mc service above
+      RCON_PASSWORD: "password"
