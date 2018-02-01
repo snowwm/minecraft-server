@@ -29,6 +29,6 @@ services:
       - "80:80"
     environment:
       ADMIN_USER: "admin"
-      ADMIN_PASSWORD: # substituted from shell
+      ADMIN_PASSWORD: "DontLeakYourPasswordsLikeMe"
       RCON_HOST: "mcserver" # the name of mc service above
       RCON_PASSWORD: "password"
