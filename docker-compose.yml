@@ -25,6 +25,7 @@ services:
     build: rcon
     image: rcon
     container_name: rcon
+    hostname: "$HOSTNAME"
     ports:
       - "80:80"
     environment:
